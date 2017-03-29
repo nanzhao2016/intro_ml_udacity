@@ -7,9 +7,15 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.ensemble import RandomForestClassifier, AdaBoostClassifier
 from sklearn.model_selection import GridSearchCV
 from sklearn.metrics import accuracy_score
+import pprint
 
 features_train, labels_train, features_test, labels_test = makeTerrainData()
+clf_knn = KNeighborsClassifier()
+clf_rf = RandomForestClassifier()
+clf_ab = AdaBoostClassifier()
 
+
+parameter_knn = {'n_neighbors': [5, 10, 15], 'weights': ('uniform', 'distance'), 'algorithm': ('brute', 'ball_tree', 'kd_tree')}
 
 ### the training data (features_train, labels_train) have both "fast" and "slow"
 ### points mixed together--separate them so we can give them different colors
@@ -36,7 +42,12 @@ plt.show()
 ### visualization code (prettyPicture) to show you the decision boundary
 
 
+clf_knn = KNeighborsClassifier()
+clf_rf = RandomForestClassifier()
+clf_ab = AdaBoostClassifier()
 
+
+parameter_knn = {'n_neighbors': [5, 10, 15], 'weights': ('uniform', 'distance'), 'algorithm': ('brute', 'ball_tree', 'kd_tree')}
 
 
 
