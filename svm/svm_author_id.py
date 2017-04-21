@@ -32,10 +32,22 @@ from sklearn.metrics import accuracy_score
 import pprint
 
 results = {}
-#sample = round(len(features_train)/100)
 sample = len(features_train)
+print(sample)
+#sample = len(features_train)
 features_train = features_train[: sample]
 labels_train = labels_train[: sample]
+
+
+svc = svm.SVC(kernel = "rbf", C=10000)
+svc.fit(features_train, labels_train)
+pred = svc.predict(features_test)
+accuracy = accuracy_score(pred, labels_test)
+print(accuracy)	
+print(pred[10], pred[26], pred[50])
+print(sum(pred))
+
+
 
 """
 svc = svm.SVC(kernel = "linear")
@@ -68,13 +80,3 @@ for i in c:
 
 pprint.pprint(results)
 """
-svc = svm.SVC(kernel = "rbf", C=10000)
-svc.fit(features_train, labels_train)
-pred = svc.predict(features_test)
-accuracy = accuracy_score(pred, labels_test)
-print(accuracy)	
-
-print(sum(pred))
-
-
-
